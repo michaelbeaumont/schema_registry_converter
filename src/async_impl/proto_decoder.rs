@@ -66,7 +66,7 @@ impl<'a> ProtoDecoder<'a> {
     }
     /// The actual deserialization trying to get the id from the bytes to retrieve the schema, and
     /// using a reader transforms the bytes to a value.
-    async fn deserialize(&self, id: u32, bytes: &[u8]) -> Result<MessageValue, SRCError> {
+    pub async fn deserialize(&self, id: u32, bytes: &[u8]) -> Result<MessageValue, SRCError> {
         let vec_of_schemas = self.get_vec_of_schemas(id).await?;
         let context = into_decode_context(vec_of_schemas.to_vec())?;
         let (index, data) = to_index_and_data(bytes)?;

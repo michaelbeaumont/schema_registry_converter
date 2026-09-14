@@ -221,7 +221,7 @@ impl<'a> AvroDecoder<'a> {
     }
     /// The actual deserialization trying to get the id from the bytes to retrieve the schema, and
     /// using a reader transforms the bytes to a value.
-    async fn deserialize_with_schema(
+    pub async fn deserialize_with_schema(
         &self,
         id: u32,
         bytes: &[u8],
